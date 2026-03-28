@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.applications.resnet50 import preprocess_input   # <-- FIXED
+from tensorflow.keras.applications.resnet50 import preprocess_input  
 from sklearn.metrics import (
     classification_report, confusion_matrix, accuracy_score
 )
