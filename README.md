@@ -26,8 +26,8 @@ The model has been trained on SIPaKMeD dataset which consists of 966 cluster cel
 - HorizontalFlip, VerticalFlip (p=0.5 each)
 - RandomRotate90 (p=0.5)
 - Rotate up to 30° with reflect border (p=0.6)
-- GaussianBlur or MedianBlur — one of (p=0.3)
-- GaussNoise or ISONoise — one of (p=0.3)
+- GaussianBlur or MedianBlur - one of (p=0.3)
+- GaussNoise or ISONoise - one of (p=0.3)
 - RandomBrightnessContrast (p=0.5)
 - HueSaturationValue (p=0.4)
 - CLAHE clip_limit=3.0, tile_grid=(8×8) (p=0.3)
@@ -69,11 +69,11 @@ Phase 2 - Fine-tune last conv block (60 epochs)
 - Unfroze ResNet50 layers from 143 onwards (last convolutional block). (ResNet50 has 175 layers total. Layers 0-142 detect universal features like edges and textures, hence no changes needed.)
 - Kept BatchNorm layers (earlier layers) frozen because they detect universal features like edges and textures. Imp for ResNet50's stability as well.
 - Learning rate dropped to 0.0001 which is ten times smaller, to gently nudge pretrained weights towards cervical cells without catastrophic forgetting.
-- Used ReduceLROnPlateau — automatically halved LR when val_loss stopped improving
+- Used ReduceLROnPlateau - automatically halved LR when val_loss stopped improving
 - Used EarlyStopping with restore_best_weights=True
 - Result: 96.92% test accuracy
 
-## Class Weights
+Class Weights
 SIPakMed has unequal class sizes: Superficial-Intermediate has 90 images, Koilocytotic only 38. I used compute_class_weight('balanced') from sklearn to handle the imbalance and prevented the model from ignoring minority classes.
 
 4. Model evaluation
