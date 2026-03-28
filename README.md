@@ -14,6 +14,7 @@ Built a `DatasetDivision` class that:
 - Splits each class independently 60% train, 20% val, 20% test using `train_test_split` with `random_state=42`
 - Second split: `test_size=0.25` on the 80% remainder gives exactly 20% val (0.25 × 0.8 = 0.20)
 - Copies files into structured output folders using `shutil.copy`
+
 *splitting is done class by class, hence every class gets exactly 60/20/20*
 
 2. Data augmentation - (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.)
