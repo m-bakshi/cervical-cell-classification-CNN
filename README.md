@@ -60,12 +60,12 @@ Softmax → 5 classes
 <img width="1920" height="1080" alt="CERVICAL_CELL_CNN" src="https://github.com/user-attachments/assets/8328b487-93e7-430b-9b6e-efb087b69346" />
 
 ## Two Phase Training
-Phase 1 — Warm up the head (10 epochs)
+Phase 1 - Warm up the head (10 epochs)
 - Froze the entire ResNet50 backbone. Only trained the new classifier head (new Dense layers).
-- Learning rate 0.001. Important because the classifier head starts with random weights, if we immediately touch the backbone with a random head on top, the pretrained features get destroyed.
-- After 10 epochs val accuracy reached 89.18%.
+- Learning rate : 0.001. Imp because the classifier head starts with random weights. If we immediately touch the backbone with a random head on top, the pretrained features get destroyed.
+- After 10 epochs, val accuracy reached 89.18%.
 
-Phase 2 — Fine-tune last conv block (60 epochs)
+Phase 2 - Fine-tune last conv block (60 epochs)
 - Unfroze ResNet50 layers from 143 onwards (last convolutional block). (ResNet50 has 175 layers total. Layers 0-142 detect universal features like edges and textures, hence no changes needed.)
 - Kept BatchNorm layers (earlier layers) frozen because they detect universal features like edges and textures. Imp for ResNet50's stability as well.
 - Learning rate dropped to 0.0001 which is ten times smaller, to gently nudge pretrained weights towards cervical cells without catastrophic forgetting.
