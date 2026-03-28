@@ -7,7 +7,7 @@ The model has been trained on SIPaKMeD dataset which consists of 966 cluster cel
 
 ## Project workflow
 
-1. Dataset division - Built a `DatasetDivision` class that:
+**1. Dataset division -** Built a `DatasetDivision` class that:
 - Loops over each class folder in the SIPakMed dataset
 - Picks only `.bmp` files using glob, `.dat` files ignored
 - Splits each class independently 60% train, 20% val, 20% test using `train_test_split` with `random_state=42`
@@ -16,7 +16,7 @@ The model has been trained on SIPaKMeD dataset which consists of 966 cluster cel
 
 *splitting is done class by class, hence every class gets exactly 60/20/20*
 
-2. Data augmentation - (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.) - Built a 'DataAugmentation' class using Albumentations that:
+**2. Data augmentation -** (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.) Built a 'DataAugmentation' class using Albumentations that:
 - Reads each training image with OpenCV
 - Converts BGR into RGB since ResNet50 expects RGB (OpenCV by default reads BGR)
 - Generates 5 augmented copies per image and copies the original into the output folder
@@ -36,7 +36,7 @@ The model has been trained on SIPaKMeD dataset which consists of 966 cluster cel
 
 When saving augmented images back to disk, RGB was converted into BGR again as OpenCV's `imwrite` expects BGR.
 
-3. Model training -
+**3. Model training -**
 Implemented transfer learning by using ResNet50 as the base model, which is pretrained on ImageNet. Removed ResNet's original classification head (top layer) and added a custom one. Dropout and L2 regularisation were added to prevent overfitting.
 
 ResNet50 Backbone (pretrained, frozen initially)
@@ -59,7 +59,7 @@ Softmax → 5 classes
 
 <img width="1920" height="1080" alt="CERVICAL_CELL_CNN" src="https://github.com/user-attachments/assets/8328b487-93e7-430b-9b6e-efb087b69346" />
 
-## Two Phase Training
+**Two Phase Training**
 Phase 1 - Warm up the head (10 epochs)
 - Froze the entire ResNet50 backbone. Only trained the new classifier head (new Dense layers).
 - Learning rate : 0.001. Imp because the classifier head starts with random weights. If we immediately touch the backbone with a random head on top, the pretrained features get destroyed.
@@ -76,9 +76,9 @@ Phase 2 - Fine-tune last conv block (60 epochs)
 Class Weights
 SIPakMed has unequal class sizes: Superficial-Intermediate has 90 images, Koilocytotic only 38. I used compute_class_weight('balanced') from sklearn to handle the imbalance and prevented the model from ignoring minority classes.
 
-4. Model evaluation
+**4. Model evaluation -**
 - Evaluated on the unseen test set (196 images).
-## Working
+**Working:**
 - Loads the best saved model from `.h5`
 - Test generator uses same `preprocess_input` as training 
 - `shuffle=False` - imp for correct label alignment between `y_true` and `y_pred`
