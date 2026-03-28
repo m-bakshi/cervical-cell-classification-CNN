@@ -40,19 +40,19 @@ When saving augmented images back to disk, RGB was converted into BGR again as O
 Implemented transfer learning by using ResNet50 as the base model, which is pretrained on ImageNet. Removed ResNet's original classification head (top layer) and added a custom one. Dropout and L2 regularisation were added to prevent overfitting.
 
 ResNet50 Backbone (pretrained, frozen initially)
-
+\
         ↓
-        
+       
 GlobalAveragePooling2D
-
+\
         ↓
         
 Dense 512 + BatchNorm + Dropout 0.4  (L2 regularisation)
-
+\
         ↓
         
 Dense 256 + BatchNorm + Dropout 0.3  (L2 regularisation)
-
+\
         ↓
         
 Softmax → 5 classes
