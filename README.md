@@ -18,6 +18,7 @@ Built a `DatasetDivision` class that:
 *splitting is done class by class, hence every class gets exactly 60/20/20*
 
 2. Data augmentation - (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.)
+
 Built a 'DataAugmentation' class using Albumentations that:
 - Reads each training image with OpenCV
 - Converts BGR into RGB since ResNet50 expects RGB (OpenCV by default reads BGR)
