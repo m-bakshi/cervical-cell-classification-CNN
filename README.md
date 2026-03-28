@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c3106950-2b69-45ed-9fd1-d4406071876d" /># Cervical Cell Classification - A CNN framework early cancer detection
+# A CNN framework early cancer detection
 
 A CNN framework to classify cervical cells from pap smear images (5 classes) for early cancer detection and prognosis. This entailed implementing transfer learning using ResNet50 on SIPaKMed datase. The goal is to assist pathologists in early cervical cancer detection by automatically identifying 5 types of cervical cells from microscopic images.
 
