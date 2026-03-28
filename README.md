@@ -1,4 +1,4 @@
-# A CNN framework early cancer detection
+# A CNN framework for early cancer detection
 
 A CNN framework to classify cervical cells from pap smear images (5 classes) for early cancer detection and prognosis. This entailed implementing transfer learning using ResNet50 on SIPaKMed datase. The goal is to assist pathologists in early cervical cancer detection by automatically identifying 5 types of cervical cells from microscopic images.
 
