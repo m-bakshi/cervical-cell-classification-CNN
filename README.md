@@ -3,7 +3,7 @@
 A CNN framework to classify cervical cells from pap smear images (5 classes) for early cancer detection and prognosis. This entailed implementing transfer learning using ResNet50 on SIPaKMed datase. The goal is to assist pathologists in early cervical cancer detection by automatically identifying 5 types of cervical cells from microscopic images.
 
 ## Dataset
-The model has been trained on SIPaKMeD dataset which consists of 966 cluster cell images of Pap smear slides which are manually cropped from 4049 images of isolated cells. The dataset has 5 cervical cell categories - 1) Superficial-Intermediate cells 2)Parabasal cells 3) Koilocytotic cells 4) Dysketarotic cells 5) Metaplastic cells
+The model has been trained on SIPaKMeD dataset which consists of 966 cluster cell images of Pap smear slides which are manually cropped from 4049 images of isolated cells. The dataset has 5 cervical cell categories - 1) Superficial-Intermediate cells 2) Parabasal cells 3) Koilocytotic cells 4) Dysketarotic cells 5) Metaplastic cells
 
 ## Project workflow
 
