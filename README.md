@@ -7,8 +7,7 @@ The model has been trained on SIPaKMeD dataset which consists of 966 cluster cel
 
 ## Project workflow
 
-1. Dataset division -
-Built a `DatasetDivision` class that:
+1. Dataset division - Built a `DatasetDivision` class that:
 - Loops over each class folder in the SIPakMed dataset
 - Picks only `.bmp` files using glob, `.dat` files ignored
 - Splits each class independently 60% train, 20% val, 20% test using `train_test_split` with `random_state=42`
@@ -17,9 +16,7 @@ Built a `DatasetDivision` class that:
 
 *splitting is done class by class, hence every class gets exactly 60/20/20*
 
-2. Data augmentation - (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.)
-
-Built a 'DataAugmentation' class using Albumentations that:
+2. Data augmentation - (Augmentation was applied **only on training set**, val and test sets remained original to represent real unseen data.) - Built a 'DataAugmentation' class using Albumentations that:
 - Reads each training image with OpenCV
 - Converts BGR into RGB since ResNet50 expects RGB (OpenCV by default reads BGR)
 - Generates 5 augmented copies per image and copies the original into the output folder
