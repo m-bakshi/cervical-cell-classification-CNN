@@ -61,6 +61,7 @@ Softmax → 5 classes
 
 **Two Phase Training:**
 \
+
 Phase 1 - Warm up the head (10 epochs)
 - Froze the entire ResNet50 backbone. Only trained the new classifier head (new Dense layers).
 - Learning rate : 0.001. Imp because the classifier head starts with random weights. If we immediately touch the backbone with a random head on top, the pretrained features get destroyed.
