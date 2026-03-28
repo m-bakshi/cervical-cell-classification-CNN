@@ -77,8 +77,9 @@ Phase 2 - Fine-tune last conv block (60 epochs)
 
 **4. Model evaluation -**
 - Evaluated on the unseen test set (196 images).
-\
+
 **Working:**
+
 - Loads the best saved model from `.h5`
 - Test generator uses same `preprocess_input` as training 
 - `shuffle=False` - imp for correct label alignment between `y_true` and `y_pred`
