@@ -71,7 +71,7 @@ Phase 2 - Fine-tune last conv block (60 epochs)
 - Learning rate dropped to 0.0001 which is ten times smaller, to gently nudge pretrained weights towards cervical cells without catastrophic forgetting.
 - Used ReduceLROnPlateau - automatically halved LR when val_loss stopped improving
 - Used EarlyStopping with restore_best_weights=True
-- Result: 96.92% test accuracy
+- Result: 92.78% test accuracy
 
 **Class Weights -** SIPakMed has unequal class sizes: Superficial-Intermediate has 90 images, Koilocytotic only 38. I used compute_class_weight('balanced') from sklearn to handle the imbalance and prevented the model from ignoring minority classes.
 
